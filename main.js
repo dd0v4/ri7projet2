@@ -8,7 +8,6 @@ const titreJeu = `
     |_| |_| \\____/ \\___\\__|\\__|  \\__/\\__,_|\\_/\\__,_/__\\__|_| |_| .__/\\__|
                |__/                                            |_|
 `;
-
 const gameOver = `
 
 $$$$$$$\  $$$$$$$$\  $$$$$$\  $$$$$$$\        $$$$$$$$\ $$\   $$\ $$$$$$$\      
@@ -30,6 +29,8 @@ const mort = () => {
     console.log(gameOver);
     process.exit();
 }
+
+// fonction pour mettre fin au programme
 const jailOver = `
 
 
@@ -51,12 +52,17 @@ const jail = () => {
     console.log(jailOver);
     process.exit();
 }
+// fonction pour mettre fin au programme
+
 const continuer = () => {
     prompt(`Appuyez sur entrée pour continuer....`);
 }
+// fonction pour que l'user appuie sur entrée pour continuer 
 const capitalize = (s) => {
     return s[0].toUpperCase() + s.slice(1);
 }
+
+// fonction pour que la première lettre d'un string soit en majuscule
 
 const controlInput = (number, prompt) => {
     for (let i = 0; i < number +1; i++) {
@@ -67,6 +73,7 @@ const controlInput = (number, prompt) => {
     console.log("Entrée incorrecte.");
     return false;
 }
+// fonction pour contrôler l'input de l'user
 
 const isSure = (choix) => {
     console.log(`Vous avez sélectionné le choix ${choix}, est-ce correct ?`);
@@ -81,6 +88,8 @@ const isSure = (choix) => {
         return true;
     }
 }
+// fonction pour demander à l'user si il est sûr de sa réponse 
+
 
 if (os.platform() === "linux" || os.platform() === "darwin") {
     const result = spawnSync("clear", { stdio: 'inherit' });
@@ -90,10 +99,12 @@ if (os.platform() === "linux" || os.platform() === "darwin") {
     console.log(titreJeu);
 }
 
+// détection de l'os pour faire clear sur linux et mac et cls sur windows
+
 const pseudo = prompt("Bienvenue dans mon jeu, entrez votre pseudonyme : ");
 prompt(`\nD'accord ${capitalize(pseudo)}, appuyez sur entrée pour commencer.`);
 
-
+// prompt pour le pseudo de l'user et print son pseudo avec une majuscule 
 console.log(`
                                                                                                                
 .:                                    .         
@@ -153,6 +164,7 @@ if (Number(arme) === 1){
     console.log("\n\nL'homme vous poignarde dans le cou, vous êtes morts.\n");
     mort();
 }
+
 
 
 console.log("Bravo, vous avez survécu ! Mais ce n'est pas terminé.....\n");
